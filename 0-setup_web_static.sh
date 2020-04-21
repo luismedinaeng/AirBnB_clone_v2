@@ -10,3 +10,4 @@ chown --recursive ubuntu:ubuntu /data
 OLD="server_name _;"
 NEW="server_name _;\n\tlocation \/hbnb_static {\n\t\talias \/data\/web_static\/current;\n\t}"
 sed -i "s/$OLD/$NEW/g" /etc/nginx/sites-available/default
+service nginx restart
