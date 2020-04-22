@@ -9,7 +9,7 @@ echo "Hello World! This is a test file" > /data/web_static/releases/test/index.h
 ln --force --symbolic /data/web_static/releases/test /data/web_static/current
 chown --recursive ubuntu:ubuntu /data
 OLD=$(grep --max-count=1 -e '^\s*server_name .*;$' /etc/nginx/sites-available/default)
-NEW="\n\tlocation \/hbnb_static {\n\t\talias \/data\/web_static\/current;\n\t}"
+NEW="$OLD""\n\tlocation \/hbnb_static {\n\t\talias \/data\/web_static\/current;\n\t}"
 sed -i "0,/$OLD/s//$NEW/" /etc/nginx/sites-available/default
 rm /etc/nginx/sites-enabled/default
 ln --symbolic /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
