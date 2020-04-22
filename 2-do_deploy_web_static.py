@@ -17,6 +17,7 @@ def do_pack():
     else:
         return file_tgz
 
+
 def do_deploy(archive_path):
     if local("ls {}".format(archive_path)).failed:
         return False
@@ -29,8 +30,8 @@ def do_deploy(archive_path):
            format(archive_name, folder)).failed:
         return False
     run("rm /tmp/{}".format(archive_name))
-    run("mv /data/web_static/releases/{0}/web_static/* /data/web_static/releases/{0}/"
-        .format(folder))
+    run("mv {0}/web_static/* {0}/"
+        .format("/data/web_static/releases/" + folder))
     run("rm -rf /data/web_static/realeases/{}/web_static".format(folder))
     run("rm -rf /data/web_static/current")
     run("ln -s /data/web_static/releases/{}/ /data/web_static/current"
