@@ -11,7 +11,8 @@ env.hosts = ['34.74.55.34', '3.82.65.220']
 def do_pack():
     local("mkdir -p versions")
     current = datetime.datetime.now()
-    file_tgz = "versions/web_static_{}.tgz".format(current.strftime("%Y%m%d%H%M%S"))
+    file_tgz = "versions/web_static_{}.tgz".format(current.
+                                                   strftime("%Y%m%d%H%M%S"))
     if local("tar -cvzf {} web_static".format(file_tgz)).failed:
         return None
     else:
@@ -41,7 +42,7 @@ def do_deploy(archive_path):
 
 def deploy():
     archive_path = do_pack()
-    if archive_path == None:
+    if archive_path is None:
         return False
     else:
         return do_deploy(archive_path)
