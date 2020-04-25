@@ -1,0 +1,21 @@
+html {
+		height: 100%;
+}
+body {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		color: #484848;
+		font-size: 14px;
+		font-family: Circular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+		display: flex;
+		flex-direction: column;
+}
+
+.container {
+		max-width: 1000px;
+		width: 100%;
+		margin: 30px auto;
+		flex: 1 0 auto;
+}
